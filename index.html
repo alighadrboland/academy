@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه شخصی استاد</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/dist/font-face.css" rel="stylesheet" type="text/css" />
+    
+    <style>
+        body {
+            font-family: 'Vazir', Arial, sans-serif;
+            background: linear-gradient(135deg, #4a90e2, #8e44ad);
+            direction: rtl;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #3b5998, #8e44ad);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 900px;
+            position: relative;
+        }
+        
+        .profile-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .course-box {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+        .course-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .lesson-list {
+            margin-top: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: none;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .lesson-content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+            background: #fff;
+        }
+        
+        footer {
+            background: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 40px;
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section, .course-box, .lesson-list {
+                max-width: 100%;
+            }
+            .profile-image {
+                width: 60px;
+                height: 60px;
+                top: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+    
+    <script>
+        function toggleLessonList() {
+            var lessonList = document.getElementById("lesson-list");
+            lessonList.style.display = lessonList.style.display === "none" ? "block" : "none";
+        }
+        
+        function toggleLessonContent(event, lessonId) {
+            event.preventDefault();
+            var lessonContent = document.getElementById(lessonId);
+            lessonContent.style.display = lessonContent.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section">
+            <h1>صفحه شخصی استاد</h1>
+            <p>اینجا می‌توانید اطلاعاتی درباره من و فعالیت‌های دانشگاهی‌ام بیابید.</p>
+            <img src="IMG_9764.jpeg" alt="استاد" class="profile-image">
+        </div>
+        
+        <div class="course-box" onclick="toggleLessonList()">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo" style="width: 50px; height: 50px; margin-bottom: 10px;">
+            <h3><i class="fas fa-book-open"></i> درس برنامه‌نویسی سیستمی</h3>
+        </div>
+        
+        <div id="lesson-list" class="lesson-list text-center mt-3">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="#" onclick="toggleLessonContent(event, 'lesson1')">
+                        <i class="fas fa-file-pdf"></i> جلسه اول: مقدمه‌ای بر برنامه‌نویسی سیستمی
+                    </a>
+                    <div id="lesson1" class="lesson-content">
+                        <iframe src="pdfs/lesson1.pdf" width="100%" height="500px"></iframe>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" onclick="toggleLessonContent(event, 'lesson2')">
+                        <i class="fas fa-file-pdf"></i> جلسه دوم: مدیریت حافظه
+                    </a>
+                    <div id="lesson2" class="lesson-content">
+                        <iframe src="pdfs/lesson2.pdf" width="100%" height="500px"></iframe>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer>&copy; 2025 استاد دانشگاه - صفحه شخصی</footer>
+</body>
+</html>
